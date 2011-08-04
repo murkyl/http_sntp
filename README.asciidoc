@@ -1,0 +1,27 @@
+3B-http_sntp.js
+=====================
+:Author: Andrew Chung, 3Bengals Inc.
+:Email: Andrew Chung <andrew.chung@3bengals.com>
+:Date: 2011-08-03
+:Revision: 1.0.0
+
+This library provides a simple means to synchronize a client browser with your server.  The time adjustment should
+be good enough for accuracy within a second or two.
+
+The library will send a GET request to a web server and expects a simple text string as a response.  The GET
+request URL will contain 1 URL parameter with a key name of 't0'.  This corresponds to time that the request left
+the client for the server.  The server should respond back with a response string in the body of the response
+with a format of:
+t0=1234:t1=1234:t2=1234
+
+Where t0 is the same parameter from the request paramter.
+t1 is the time that the server receives the reply.  This number should be as close as possible to the time the
+server actually receives the request.
+t2 is the time that the server sends the response back to the client.  This number should be as close as
+possible to the time the server actually sends the response back.
+
+All the values, t0, t1 and t2 are numbers that represent the time in milliseconds since the epoch time of
+01/01/1970 at 00:00:00 UTC.  This is the standard epoch time of Javascript, Unix and various other systems.
+
+
+== Functions
