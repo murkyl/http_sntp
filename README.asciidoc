@@ -6,17 +6,19 @@
 :Revision: 1.0.0
 
 This library provides a simple means to synchronize a client browser with your server.  The time adjustment should
-be good enough for accuracy within a second or two.
+be good enough for accuracy within a second.
 
 The library will send a GET request to a web server and expects a simple text string as a response.  The GET
-request URL will contain 1 URL parameter with a key name of 't0'.  This corresponds to time that the request left
-the client for the server.  The server should respond back with a response string in the body of the response
-with a format of:
+request URL will contain 1 URL parameter with a key name of 't0'.  This corresponds to the time the request left
+the client for the server.  The server should respond back with a response string in the body with a format of:
+
 t0=1234:t1=1234:t2=1234
 
-Where t0 is the same parameter from the request paramter.
+t0 is the same parameter from the request paramter.
+
 t1 is the time that the server receives the reply.  This number should be as close as possible to the time the
 server actually receives the request.
+
 t2 is the time that the server sends the response back to the client.  This number should be as close as
 possible to the time the server actually sends the response back.
 
